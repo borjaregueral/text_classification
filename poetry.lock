@@ -530,6 +530,23 @@ files = [
 ]
 
 [[package]]
+name = "focal-loss"
+version = "0.0.7"
+description = "TensorFlow implementation of focal loss."
+optional = false
+python-versions = "*"
+files = [
+    {file = "focal-loss-0.0.7.tar.gz", hash = "sha256:52de3311fdd6e6ee8f746638fb949b8fc55e167acdfffc74a33ac852750c893c"},
+    {file = "focal_loss-0.0.7-py3-none-any.whl", hash = "sha256:2dad215281050019eb0ffdb4903335de6ef614f5576b08d2961bf1f2493eba42"},
+]
+
+[package.dependencies]
+tensorflow = ">=2.2"
+
+[package.extras]
+dev = ["coverage", "matplotlib", "numpy", "pytest", "scipy", "seaborn", "sphinx", "sphinx-rtd-theme"]
+
+[[package]]
 name = "fonttools"
 version = "4.53.1"
 description = "Tools to manipulate font files"
@@ -3158,4 +3175,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "bc0846fc521eab761121870f0457aec1d24dfa89ca8d0247baa408f6df24d573"
+content-hash = "17b2b2ee128c6968071630930c026fe7688a3910bdb51e6e41777f90d1bd41b4"

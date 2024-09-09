@@ -22,6 +22,7 @@ vadersentiment = "^3.3.2"
 plotly = "^5.24.0"
 nbformat = "^5.10.4"
 keras-nlp = "^0.14.4"
+focal-loss = "^0.0.7"
 
 
 [tool.poetry.group.dev.dependencies]

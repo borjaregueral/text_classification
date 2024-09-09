@@ -8,7 +8,7 @@ import seaborn as sns
 
 def plot_training_history(history: Any, width: int = 1000, height: int = 400) -> None:
     """
-    Plot the training and validation loss and accuracy from the training history.
+    Plot the training and validation loss and F1 score from the training history.
 
     Args:
     history (Any): The training history object returned by Keras.
@@ -19,7 +19,7 @@ def plot_training_history(history: Any, width: int = 1000, height: int = 400) ->
     history_dict = history.history
 
     # Create subplots: 1 row, 2 columns
-    fig = make_subplots(rows=1, cols=2, subplot_titles=('Loss Evolution', 'Accuracy Evolution'))
+    fig = make_subplots(rows=1, cols=2, subplot_titles=('Loss Evolution', 'F1_score Evolution'))
 
     # Add traces for training and validation loss (left subplot)
     fig.add_trace(go.Scatter(
@@ -36,19 +36,19 @@ def plot_training_history(history: Any, width: int = 1000, height: int = 400) ->
         name='Val Loss'
     ), row=1, col=1)
 
-    # Add traces for training and validation accuracy (right subplot)
+    # Add traces for training and validation F1 score (right subplot)
     fig.add_trace(go.Scatter(
-        x=list(range(1, len(history_dict['accuracy']) + 1)),
-        y=history_dict['accuracy'],
+        x=list(range(1, len(history_dict['f1_score']) + 1)),
+        y=history_dict['f1_score'],
         mode='lines+markers',
-        name='Train Acc'
+        name='Train f1_score'
     ), row=1, col=2)
 
     fig.add_trace(go.Scatter(
-        x=list(range(1, len(history_dict['val_accuracy']) + 1)),
-        y=history_dict['val_accuracy'],
+        x=list(range(1, len(history_dict['val_f1_score']) + 1)),
+        y=history_dict['val_f1_score'],
         mode='lines+markers',
-        name='Val Acc'
+        name='Val f1_score'
     ), row=1, col=2)
 
     # Update layout for the entire figure
@@ -65,9 +65,9 @@ def plot_training_history(history: Any, width: int = 1000, height: int = 400) ->
 
     # Update x-axis and y-axis titles for each subplot
     fig.update_xaxes(title_text='Epochs', row=1, col=1, title_font=dict(color='black'), tickfont=dict(color='black'))
-    fig.update_yaxes(title_text='Loss', row=1, col=1, title_font=dict(color='black'), tickfont=dict(color='black'))
+    fig.update_yaxes(title_text='Loss', row=1, col=1, title_font=dict(color='black'), tickfont=dict(color='black'), range=[0, 1])
     fig.update_xaxes(title_text='Epochs', row=1, col=2, title_font=dict(color='black'), tickfont=dict(color='black'))
-    fig.update_yaxes(title_text='Accuracy', row=1, col=2, title_font=dict(color='black'), tickfont=dict(color='black'))
+    fig.update_yaxes(title_text='f1_score', row=1, col=2, title_font=dict(color='black'), tickfont=dict(color='black'), range=[0, 1])
 
     # Show the plot
     fig.show()
