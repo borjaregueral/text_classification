@@ -23,6 +23,7 @@ plotly = "^5.24.0"
 nbformat = "^5.10.4"
 keras-nlp = "^0.14.4"
 focal-loss = "^0.0.7"
+nbconvert = "^7.16.4"
 
 
 [tool.poetry.group.dev.dependencies]
